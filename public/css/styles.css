@@ -1,10 +1,121 @@
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     /** PLACEMENT **/
-    margin: 40px;
+    margin: 2.5rem;
+    overflow-x : hidden
 }
 
-img {
-    border-radius: 30px;
+h2 {
+    display: flex;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* .logo {
+    width: 1.875rem;
+    height: 1.875rem;
+} */
+
+.photo {
+    border-radius: 1.875rem;
+    filter: drop-shadow(0 0 0.75rem rgb(4, 4, 4));
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    width: 3rem;
+    height: 3rem;
+}
+
+.typo-ar-onesans {
+    font-family: 'AR One Sans', sans-serif;
+    width: auto;
+}
+
+.typoTitres {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+}
+
+.typoTitreSpeech {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 2px;
+}
+/*! LOADER !*/
+.loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.lettre {
+    color: #484848;
+    font-size: 80px;
+    letter-spacing: 15px;
+    margin-bottom: 150px;
+    animation: flash 1.2s linear infinite;
+}
+@keyframes flash {
+    0% {
+        color: #c175ff;
+        text-shadow: 0 0 7px #c175ff;
+    }
+    90% {
+        color: #484848;
+        text-shadow: none;
+    }
+    100%{
+        color: #c175ff;
+        text-shadow: 0 0 7px #c175ff;
+    }
+}
+.lettre:nth-child(1){
+    animation-delay: 0.1s;
+}
+.lettre:nth-child(2){
+    animation-delay: 0.2s;
+}
+.lettre:nth-child(3){
+    animation-delay: 0.3s;
+}
+.lettre:nth-child(4){
+    animation-delay: 0.4s;
+}
+.lettre:nth-child(5){
+    animation-delay: 0.5s;
+}
+.lettre:nth-child(6){
+    animation-delay: 0.6s;
+}
+.lettre:nth-child(7){
+    animation-delay: 0.7s;
+}
+.lettre:nth-child(8){
+    animation-delay: 0.8s;
+}
+.lettre:nth-child(9){
+    animation-delay: 0.9s;
+}
+.lettre:nth-child(10){
+    animation-delay: 1s;
+}
+
+.fondu-out {
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
 }
 
 /*! HEADER !*/
@@ -12,32 +123,53 @@ img {
 .header {
     /** PLACEMENT **/
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+
+}
+
+.title {
+    width: 17.813rem;
+}
+
+.prenom {
+    color: #c175ff;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+    width: 17.813rem;
+    padding: 0;
 }
 
 .menu {
     /** PLACEMENT **/
     display: flex;
-    justify-content: center;
-    align-items: center;
     justify-content: space-between;
+    width: 17.438rem;
     padding-left: 0px;
 
     /** DECORATION **/
     border: solid grey;
     background-color: #F0F0F2;
-    border-radius: 35px;
+    border-radius: 2.188rem;
 }
 
 .menu-word {
     /** PLACEMENT **/
-    margin-right: 20px;
-    margin-left: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-right: 0.313rem;
+    margin-left: 0.313rem;
+    margin-top: 0.313rem;
+    margin-bottom: 0.313rem;
     list-style-type : none;
+    padding: 0.625rem 0.625rem;
+    border-radius: 2.5rem;
+}
+
+.accueil {
+    background-color: #c175ff;
 }
 
 
@@ -48,14 +180,16 @@ img {
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
-    margin-top: 200px;
+    font-size: x-large;
+    margin-top: 12.5rem;
 }
 
 .qualities {
     /** PLACEMENT **/
     display: flex;
     justify-content: space-between;
-    margin-top: 200px;
+    font-size: larger;
+    margin-top: 12.5rem;
 }
 
 .qualities-list {
@@ -63,62 +197,232 @@ img {
     display: flex;
     flex-direction: row;
     list-style-type : none;
+    border: solid;
+    padding-left: 0rem;
     justify-content: space-between;
 }
 
 .qualities-word {
-    margin-left: 30px;
+    margin-left: 2.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-right: 2.5rem;
+}
+
+.quality-icon {
+    width: 3.75rem;
+    height: 3.75rem;
+}
+
+.work-title { 
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+    align-items: center;
+    justify-content: center;
 }
 
 .my-work {
     /** PLACEMENT **/
     justify-content: center;
-    margin-top: 200px;
+    font-size: larger;
+    margin-top: 12.5rem;
 }
 
 @media only screen and (min-device-width : 0px) and (max-device-width : 768px){
+
+    .speech {
+        width: 450px;
+    }
+
     .project-list {
         /** PLACEMENT **/
-        column-count: 1;
-        align-items: center;
-        justify-content: start;
-        column-width: auto;
-    
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.625rem;
+        grid-auto-rows: minmax(6.25rem, auto);
+        margin-top: 3.125rem;
+    }
+
+    .un {
+        display: flex;
+        justify-content: center;
     }
 
     .project-pic {
+        /* ... (styles existants) ... */
+        position: relative; /* Ajouter une position relative pour positionner l'overlay par rapport à cette div */
+        background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
+        background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
+        background-position: center; /* Centre l'image horizontalement et verticalement */
+        height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
+        width: 21.875rem; /* Définissez la largeur de la div selon vos besoins */
+        color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
+        padding: 1.25rem;
+        border-radius: 1.875rem;
+        margin-top: 0.938rem;
+        filter: drop-shadow(0 0 0.75rem #A9A9A9);
+    }
+    
+}
+
+@media only screen and (min-device-width : 769px) and (max-device-width : 1749px){
+    .project-list {
         /** PLACEMENT **/
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.625rem;
+        grid-auto-rows: minmax(6.25rem, auto);
+        margin-top: 3.125rem;
+    }
+
+    .un {
         display: flex;
         justify-content: center;
-        margin-top: 40px;
     }
+
+    .project-pic {
+        /* ... (styles existants) ... */
+        position: relative; /* Ajouter une position relative pour positionner l'overlay par rapport à cette div */
+        background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
+        background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
+        background-position: center; /* Centre l'image horizontalement et verticalement */
+        height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
+        width: 21.875rem; /* Définissez la largeur de la div selon vos besoins */
+        color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
+        padding: 1.25rem;
+        border-radius: 1.875rem;
+        margin-top: 0.938rem;
+        filter: drop-shadow(0 0 0.75rem #A9A9A9);
+    }
+    
 }
 
-@media only screen and (min-device-width : 769px) and (max-device-width : 2000px){
-.project-list {
-    /** PLACEMENT **/
-    column-count: 2;
+@media only screen and (min-device-width : 1750px) and (max-device-width : 2000px){
+    .project-list {
+        /** PLACEMENT **/
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.625rem;
+        grid-auto-rows: minmax(6.25rem, auto);
+        margin-top: 3.125rem;
+    }
+
+    .un {
+        display: flex;
+        justify-content: center;
+    }
+
+    .project-pic {
+        /* ... (styles existants) ... */
+        background-image: url('/images/image-ville.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 38.875rem;
+        width: 21.875rem;
+        color: #fff;
+        padding: 1.25rem;
+        border-radius: 1.875rem;
+        margin-top: 0.938rem;
+        filter: drop-shadow(0 0 0.75rem #A9A9A9);
+    }
+
+}
+
+.project-name {
+    display: inline-block;
+    background-color: #c175ff;
+    border-radius: 0.625rem;
+    padding: 0.438rem;
+    margin: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1.875rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     align-items: center;
-    justify-content: start;
-    column-width: auto;
-    margin-top: 50px;
-
+    justify-items: center;
 }
 
-.project-pic {
-    /** PLACEMENT **/
+.logo-list {
     display: flex;
-    border-radius: 50px;
-    justify-content: center;
-    margin-top: 15px;
+    flex-direction: row;
+    justify-content: center; /* Centrez les logos horizontalement */
+    align-items: center;
+    width: auto;
+    height: 1.875rem;
 }
+
+.overlay img {
+    width: 1.875rem;
+    height: 1.875rem;
+    margin: 0.313rem; /* Espacement entre les logos */
 }
+   
+    .project-pic:hover p {
+        display: inline-block;
+        background-color: #c175ff;
+        border-radius: 0.625rem;
+        padding: 0.438rem;
+        height: 1.563rem;
+        margin-top:  18px;
+        margin-left:  20px;
+    }
+    
+    .project-pic:hover .project-name {
+        visibility: hidden;
+    }
+    
+    .project-pic:hover .overlay {
+        opacity: 1;
+    }
 
 /*! FOOTER */
+/* BOUTON DE CONTACT */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+.btn{
+font-weight: 900;
+font-size: 17px;
+color: #fff;
+background: linear-gradient(30deg, #0066CC 0%, #c175ff 52%);
+padding: 10px 30px;
+border: 2px solid #0066cc;
+box-shadow: rgb(169, 169, 169) 2px 2px 19px 0px;
+border-radius: 12px;
+transition : 178ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+
+.btn:hover{
+
+transition : 178ms;
+padding: 10px 39px;
+transform : translateY(-0px);
+background: linear-gradient(30deg, #0066CC 0%, #c175ff 52%);
+color: #fad625;
+border: solid 2px #fad625;
+}
+
 
 .footer {
     /** PLACEMENT **/
     display: flex;
     justify-content: space-between;
-    margin-top: 200px;
+    font-size: larger;
+    margin-top: 12.5rem;
 }
