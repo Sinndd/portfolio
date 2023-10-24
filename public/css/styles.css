@@ -4,8 +4,16 @@ html {
 
 body {
     /** PLACEMENT **/
-    margin: 2.5rem;
-    overflow-x : hidden
+    overflow-x : hidden;
+    margin: 0;
+}
+
+/* Ajoutez un z-index négatif pour le contenu afin qu'il passe sous le header */
+.main-content {
+    position: relative;
+    padding-top: 100px;
+    max-width: auto;
+    z-index: -1;
 }
 
 h2 {
@@ -123,13 +131,18 @@ a{
 .header {
     /** PLACEMENT **/
     display: flex;
-    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    justify-content: space-evenly;
     align-items: center;
-
+    background-color: #fff; /* Remplacez par la couleur de fond souhaitée */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Facultatif : ajoutez une ombre si nécessaire */
+    z-index: 1000; /* Assurez-vous que le header s'affiche au-dessus du contenu */
 }
 
 .title {
     width: 17.813rem;
+    height: auto;
 }
 
 .prenom {
@@ -168,7 +181,9 @@ a{
     border-radius: 2.5rem;
 }
 
-.accueil {
+.accueil.active,
+.travaux.active,
+.a-propos.active {
     background-color: #c175ff;
 }
 
@@ -180,16 +195,25 @@ a{
     display: flex;
     justify-content: center;
     justify-content: space-evenly;
+    gap: 5%;
     font-size: x-large;
-    margin-top: 12.5rem;
+    margin-top: 10rem;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .qualities {
     /** PLACEMENT **/
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 70%;
     font-size: larger;
     margin-top: 12.5rem;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .qualities-list {
@@ -203,6 +227,7 @@ a{
 }
 
 .qualities-word {
+    text-align: center;
     margin-left: 2.5rem;
     margin-top: 2.5rem;
     margin-bottom: 2.5rem;
@@ -219,6 +244,7 @@ a{
     flex-direction: column;
     font-size: larger;
     align-items: center;
+    text-align: center;
     justify-content: center;
 }
 
@@ -229,7 +255,7 @@ a{
     margin-top: 12.5rem;
 }
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 768px){
+@media only screen and (min-device-width : 0px) and (max-device-width : 850px){
 
     .speech {
         width: 450px;
@@ -242,6 +268,9 @@ a{
         gap: 0.625rem;
         grid-auto-rows: minmax(6.25rem, auto);
         margin-top: 3.125rem;
+        margin-bottom: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .un {
@@ -256,7 +285,7 @@ a{
         background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
         background-position: center; /* Centre l'image horizontalement et verticalement */
         height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
-        width: 21.875rem; /* Définissez la largeur de la div selon vos besoins */
+        width: 40vw; /* Définissez la largeur de la div selon vos besoins */
         color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
         padding: 1.25rem;
         border-radius: 1.875rem;
@@ -266,7 +295,7 @@ a{
     
 }
 
-@media only screen and (min-device-width : 769px) and (max-device-width : 1749px){
+@media only screen and (min-device-width : 851px) and (max-device-width : 1749px){
     .project-list {
         /** PLACEMENT **/
         display: grid;
@@ -274,6 +303,9 @@ a{
         gap: 0.625rem;
         grid-auto-rows: minmax(6.25rem, auto);
         margin-top: 3.125rem;
+        margin-bottom: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .un {
@@ -288,7 +320,7 @@ a{
         background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
         background-position: center; /* Centre l'image horizontalement et verticalement */
         height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
-        width: 21.875rem; /* Définissez la largeur de la div selon vos besoins */
+        width: 40vw; /* Définissez la largeur de la div selon vos besoins */
         color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
         padding: 1.25rem;
         border-radius: 1.875rem;
@@ -302,10 +334,14 @@ a{
     .project-list {
         /** PLACEMENT **/
         display: grid;
+        width: 100%;
         grid-template-columns: repeat(4, 1fr);
         gap: 0.625rem;
         grid-auto-rows: minmax(6.25rem, auto);
         margin-top: 3.125rem;
+        margin-bottom: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 
     .un {
@@ -319,7 +355,8 @@ a{
         background-size: cover;
         background-position: center;
         height: 38.875rem;
-        width: 21.875rem;
+        width: 75%;
+        max-width: 400px;
         color: #fff;
         padding: 1.25rem;
         border-radius: 1.875rem;
@@ -359,13 +396,15 @@ a{
     flex-direction: row;
     justify-content: center; /* Centrez les logos horizontalement */
     align-items: center;
-    width: auto;
-    height: 1.875rem;
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .overlay img {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 10%;
+    height: 100%;
     margin: 0.313rem; /* Espacement entre les logos */
 }
    
@@ -374,7 +413,8 @@ a{
         background-color: #c175ff;
         border-radius: 0.625rem;
         padding: 0.438rem;
-        height: 1.563rem;
+        width: auto;
+        height: auto;
         margin-top:  18px;
         margin-left:  20px;
     }
@@ -385,6 +425,14 @@ a{
     
     .project-pic:hover .overlay {
         opacity: 1;
+    }
+
+    .monParcours {
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-top: 20rem;
+        margin-bottom: 20rem;
+        width: 70%;
     }
 
 /*! FOOTER */
@@ -422,7 +470,10 @@ border: solid 2px #fad625;
 .footer {
     /** PLACEMENT **/
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
+    justify-content: space-evenly;
     font-size: larger;
     margin-top: 12.5rem;
+    margin-bottom: 3.5rem;
 }

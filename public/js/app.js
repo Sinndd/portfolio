@@ -1,3 +1,46 @@
+document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll(".section");
+  const menuItems = document.querySelectorAll(".menu-word");
+  let previousActiveSection = null;
+
+  function makeActive() {
+    let activeSection = null;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const link = document.querySelector(`.menu-word a[href="#${section.id}"]`);
+      const menuItem = link.parentNode;
+
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        // Le haut de la section arrive en bas de l'écran
+        activeSection = section;
+        menuItems.forEach(item => item.classList.remove("active"));
+        menuItem.classList.add("active");
+      }
+    });
+
+    if (activeSection === null) {
+      // Si aucune section n'est survolée, ajoutez .active à "Accueil"
+      const link = document.querySelector(`.menu-word a[href="#homeSection"]`);
+      const menuItem = link.parentNode;
+      menuItem.classList.add("active");
+    }
+
+    if (activeSection !== previousActiveSection) {
+      if (previousActiveSection) {
+        previousActiveSection.classList.remove("active");
+      }
+      previousActiveSection = activeSection;
+    }
+  }
+
+  window.addEventListener("scroll", makeActive);
+  makeActive();
+});
+
+
+
+
 //! LOADER !//
 
 document.addEventListener('DOMContentLoaded', function () {
