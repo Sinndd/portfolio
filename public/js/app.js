@@ -1,3 +1,78 @@
+//! COOKIES + DARKMODE !//
+document.addEventListener('DOMContentLoaded', function() {
+  const btnToggle = document.querySelector('.circle-button');
+  const body = document.body;
+  const icon = btnToggle.querySelector('.icon');
+  const loader = document.querySelector('.loader');
+
+  // Récupérer le thème des cookies lors du chargement de la page
+  const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+  const themeCookie = cookies.find(cookie => cookie.startsWith('theme='));
+  if (themeCookie) {
+    const theme = themeCookie.split('=')[1];
+    if (theme === 'dark') {
+      body.classList.add('dark');
+      setDarkMode();
+    } else {
+      body.classList.add('light');
+      setLightMode();
+    }
+  } else {
+    // Appliquer un thème par défaut s'il n'y a pas de cookie défini
+    body.classList.add('default-theme'); // Remplacez 'default-theme' par votre thème par défaut
+  }
+
+  btnToggle.addEventListener('click', () => {
+    if (body.classList.contains('dark')) {
+      setLightMode();
+      document.cookie = 'theme=light; max-age=2592000; SameSite=Lax';
+    } else {
+      setDarkMode();
+      document.cookie = 'theme=dark; max-age=2592000; SameSite=Lax';
+    }
+  });
+
+  function setDarkMode() {
+    icon.style.display = 'block';
+    body.classList.remove('light');
+    body.classList.add('dark');
+    btnToggle.style.backgroundColor = '#fff'; // Couleur de fond du bouton (lune)
+    icon.src = 'images/moon.png'; // Utilisez un chemin relatif
+    icon.alt = "Lune";
+    if (body.classList.contains('dark')) {
+      loader.classList.add('dark-background');
+    }
+  }
+
+  function setLightMode() {
+    icon.style.display = 'block';
+    body.classList.remove('dark');
+    body.classList.add('light');
+    btnToggle.style.backgroundColor = '#c175ff'; // Couleur de fond du bouton (soleil)
+    icon.src = 'images/sun.png'; // Utilisez un chemin relatif
+    icon.alt = "Soleil";
+    loader.classList.remove('dark-background');
+  }
+});
+
+
+//! HEADER FIXED !//
+
+var header = document.querySelector('.header');
+
+window.addEventListener('scroll', function() {
+    if (window.scrollY > header.offsetTop + header.clientHeight) {
+        header.classList.add('header-fixed');
+        header.style.top = '0'; // Réinitialise la propriété "top" pour la transition
+    } else {
+        header.classList.remove('header-fixed');
+        header.style.top = '-100px'; // Déplace le menu vers le haut de l'écran pour la transition
+    }
+});
+
+
+//! MENU !//
+
 document.addEventListener("DOMContentLoaded", function() {
   const sections = document.querySelectorAll(".section");
   const menuItems = document.querySelectorAll(".menu-word");
@@ -57,6 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 1500); // Temps en millisecondes (1,5 secondes dans cet exemple)
 });
 
+
 //! ANIMATIONS !//
 
 const title = document.querySelectorAll('.title');
@@ -70,35 +146,35 @@ window.addEventListener('DOMContentLoaded', () => {
 gsap.from(".title", {
     y : -40,
     opacity: 0,
-    duration : 2,
-    delay : 1.5,
+    duration : .5,
+    delay : 2,
 })
 
 gsap.from(".menu", {
     y : -40,
     opacity: 0,
-    duration : 2,
+    duration : .5,
     delay : 2,
 })
 
 gsap.from(".social-icons", {
     y : -40,
     opacity: 0,
-    duration : 2,
-    delay : 2.5,
+    duration : .5,
+    delay : 2,
 })
 
 gsap.from(".left-part", {
-    x : -100,
+    x : -200,
     opacity: 0,
-    duration : 3,
+    duration : 1.5,
     delay : 1.5,
 })
 
 gsap.from(".right-part", {
     x : 500,
     opacity: 0,
-    duration : 3,
+    duration : 2,
     delay : 1,
 })
 })
@@ -139,7 +215,7 @@ gsap.config({
   workTitle.from('.work-title', {
      y: 100,
      opacity: 0,
-     duration: 1.5,
+     duration: 1,
 
     });
 
@@ -156,7 +232,7 @@ gsap.config({
   projectPic.from('.un', {
       y: 100,
       opacity: 0,
-      duration: 1.5,
+      duration: 1,
   
     });
 

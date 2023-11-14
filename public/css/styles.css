@@ -4,16 +4,78 @@ html {
 
 body {
     /** PLACEMENT **/
+    background-image: url('/images/background-light.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
     overflow-x : hidden;
     margin: 0;
 }
 
-/* Ajoutez un z-index négatif pour le contenu afin qu'il passe sous le header */
+body.dark {
+    background-image: url('/images/background.png')!important; /* Charge une image pour la mettre en fond */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    color: #fff!important;
+}
+
+    body.dark .icons {
+        filter: invert(100%);
+    }
+
+    body.dark .favicon {
+        filter: invert(100%);
+    }
+
+    body.dark .quality-icon {
+       filter: invert(100%);
+    }
+
+    body.dark .header {
+        background-color: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        color: #fff;
+    }
+
+    body.dark .header-fixed {
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 0px 24px rgba(255, 255, 255, 0.15); /* Facultatif : ajoutez une ombre si nécessaire */
+    }
+
+    body.dark .title h2 {
+        color: #fff;
+    }
+
+    body.dark .menu {
+    border: solid #fff;
+    background-color: #000;
+    color: #fff;
+    }
+
+    body.dark .menu a {
+        color: #fff;
+    }
+
+    body.dark .circle-button {
+        box-shadow: 0px 0px 38px rgba(255, 255, 255, 2);
+    }
+
+    body.dark .photo {
+        filter: drop-shadow(0 0 0.55rem rgb(255, 255, 255, 2));
+    }
+
+    body.dark .qualities {
+        background-color: #000;
+    }
+
+
+
 .main-content {
     position: relative;
-    padding-top: 100px;
     max-width: auto;
-    z-index: -1;
 }
 
 h2 {
@@ -43,6 +105,19 @@ a{
     height: 3rem;
 }
 
+.favicon {
+    display: flex;
+    justify-content: space-between;
+    width: 5rem;
+    height: 5rem;
+}
+
+.gitIcon {
+    clip-path: circle(40%);
+    width: 3rem;
+    height: 3rem;
+}
+
 .typo-ar-onesans {
     font-family: 'AR One Sans', sans-serif;
     width: auto;
@@ -67,6 +142,10 @@ a{
     justify-content: center;
     align-items: center;
     z-index: 5;
+}
+
+.dark-background {
+    background: #000000; /* Changez la couleur de fond sombre souhaitée ici */
 }
 
 .lettre {
@@ -131,13 +210,22 @@ a{
 .header {
     /** PLACEMENT **/
     display: flex;
-    position: fixed;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #fff; /* Remplacez par la couleur de fond souhaitée */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Facultatif : ajoutez une ombre si nécessaire */
-    z-index: 1000; /* Assurez-vous que le header s'affiche au-dessus du contenu */
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: top 1s ease; /* Ajoutez une transition sur la propriété "top" */
+}
+
+.header-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(5px);
+    z-index: 2;
 }
 
 .title {
@@ -151,10 +239,33 @@ a{
 
 .social-icons {
     display: flex;
+    align-items: center;
     justify-content: end;
     list-style-type: none;
-    width: 17.813rem;
+    gap: 1.5rem;
     padding: 0;
+    width: 285px
+}
+
+/*! Dark mode btn !*/
+.circle-button {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #c175ff; /* Couleur de fond du bouton (soleil) */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styles pour l'icône */
+.icon {
+    color: #fff; /* Couleur de l'icône (soleil) */
+    transition: transform 0.3s;
 }
 
 .menu {
@@ -190,6 +301,10 @@ a{
 
 /*! MAIN */
 
+.left-part {
+    width: 500px;
+}
+
 .presentation {
     /** PLACEMENT **/
     display: flex;
@@ -214,6 +329,7 @@ a{
     margin-top: 12.5rem;
     margin-left: 15%;
     margin-right: 15%;
+    background-color: #fff;
 }
 
 .qualities-list {
@@ -221,6 +337,8 @@ a{
     display: flex;
     flex-direction: row;
     list-style-type : none;
+    margin-top: 0;
+    margin-bottom: 0;
     border: solid;
     padding-left: 0rem;
     justify-content: space-between;
@@ -427,12 +545,25 @@ a{
         opacity: 1;
     }
 
-    .monParcours {
-        margin-left: 15%;
-        margin-right: 15%;
-        margin-top: 20rem;
-        margin-bottom: 20rem;
+    .aproposSection {
+        font-size: 1.15rem;
+        padding-left: 15%;
+        padding-right: 15%;
+        padding-top: 11rem;
+        padding-bottom: 11rem;
+        margin-top: 11rem;
+        margin-bottom: 2rem;
         width: 70%;
+        background-color: #9C83F6;
+        color: #fff;
+    }
+
+    .monParcours {
+        position: relative;
+        padding: 1.5rem;
+        background-color: #9370db;
+        box-shadow: #4d4173 -15px 15px 0px 0px;
+        z-index: 2;
     }
 
 /*! FOOTER */
@@ -474,6 +605,6 @@ border: solid 2px #fad625;
     justify-content: center;
     justify-content: space-evenly;
     font-size: larger;
-    margin-top: 12.5rem;
+    margin-top: 3.5rem;
     margin-bottom: 3.5rem;
 }

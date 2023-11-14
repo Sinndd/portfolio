@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Portfolio{% endblock %}
 
 {% block body %}
 <div class="loader typoTitres">
@@ -18,7 +18,7 @@
 
 <div class="header">
     <div class="title typoTitres">
-        <h2>Nathan&nbsp;<img src="{{ asset('images/dev.gif') }}" alt="Expérience">&nbsp;<div class="prenom">Delestre</div></h2>
+        <a href=""><img src="{{ asset('images/nathlogo.svg') }}" alt="Expérience" class="favicon"></a>
     </div>
 
 
@@ -29,10 +29,11 @@
     </ul>
 
     <ul class="social-icons">
-        <li class=""><img src="{{ asset('images/github.gif') }}" alt="Expérience" class="icons"></li>
-        <li class=""><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="48'" height="48" viewBox="0,0,256,256"><g fill="#c175ff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM17,20v19h-6v-19zM11,14.47c0,-1.4 1.2,-2.47 3,-2.47c1.8,0 2.93,1.07 3,2.47c0,1.4 -1.12,2.53 -3,2.53c-1.8,0 -3,-1.13 -3,-2.53zM39,39h-6c0,0 0,-9.26 0,-10c0,-2 -1,-4 -3.5,-4.04h-0.08c-2.42,0 -3.42,2.06 -3.42,4.04c0,0.91 0,10 0,10h-6v-19h6v2.56c0,0 1.93,-2.56 5.81,-2.56c3.97,0 7.19,2.73 7.19,8.26z"></path></g></g></svg></li>
-        <li class=""><img src="{{ asset('images/github.gif') }}" alt="Expérience" class="icons"></li>
-        <li class=""><img src="{{ asset('images/github.gif') }}" alt="Expérience" class="icons"></li>
+        <li class="">
+            <button id="toggle-button" class="circle-button"><img src="{{ asset('images/sun.png') }}" alt="Expérience" class="icon"></button>
+        </li>
+        <li><a href="https://www.linkedin.com/in/nathan-delestre/" target="_blank" class=""><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0,0,256,256"><g fill="#c175ff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM17,20v19h-6v-19zM11,14.47c0,-1.4 1.2,-2.47 3,-2.47c1.8,0 2.93,1.07 3,2.47c0,1.4 -1.12,2.53 -3,2.53c-1.8,0 -3,-1.13 -3,-2.53zM39,39h-6c0,0 0,-9.26 0,-10c0,-2 -1,-4 -3.5,-4.04h-0.08c-2.42,0 -3.42,2.06 -3.42,4.04c0,0.91 0,10 0,10h-6v-19h6v2.56c0,0 1.93,-2.56 5.81,-2.56c3.97,0 7.19,2.73 7.19,8.26z"></path></g></g></svg></a></li>
+        <li><a href="https://github.com/Sinndd" target="_blank"><img src="{{ asset('images/githubicon.gif') }}" alt="Expérience" class="gitIcon"></a></li>
     </ul>
 </div>
 
@@ -41,7 +42,7 @@
         <div class="presentation">
             <div class="left-part">
                 <h1 class="typoTitreSpeech">Bonjour, je m'appelle <br><span class="prenom">Nathan Delestre.</span></h1>
-                <p class="typo-ar-onesans speech">Je suis Développeur Back-End à plein temps</p>
+                <p class="typo-ar-onesans speech">J'ai 21 ans, je sors d'une formation Développeur Web de chez O'clock à l'issue de laquelle j'ai eu mon Titre Professionnel. </p>
             </div>
             <div class="right-part">
                 <img src="{{ asset('images/image-ville.jpg') }}" alt="Expérience" class="photo">
@@ -51,11 +52,11 @@
         <div class="qualities">
             <ul class="qualities-list">
                 <li class="qualities-word">
-                    <h2 class="typoTitres"><img src="{{ asset('images/handshake.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Team Work</h2>
+                    <h2 class="typoTitres"><img src="{{ asset('images/handshake.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Travail en équipe</h2>
                     <p class="typo-ar-onesans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
                 </li>
                 <li class="qualities-word">
-                    <h2 class="typoTitres"><img src="{{ asset('images/angel.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Kind</h2>
+                    <h2 class="typoTitres"><img src="{{ asset('images/angel.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Gentil</h2>
                     <p class="typo-ar-onesans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
                 </li>
                 <li class="qualities-word">
@@ -68,8 +69,8 @@
 
     <section class="my-work section" id="listprojectSection">
         <div class="work-title">
-            <h2 class="typoTitres">Selected Work</h2>
-            <p class="typo-ar-onesans">Take a look below at some of my featured work for clients from the past few years.</p>
+            <h2 class="typoTitres">Mes Projets</h2>
+            <p class="typo-ar-onesans">Voici quelques autres projets que j'ai pu réaliser...</p>
         </div>
 
         <div class="project-list">
@@ -143,32 +144,35 @@
                             <p class="typoTitres">Nom de Projet</p>
 
                             <p class="typo-ar-onesans">Salut voici mon projet</p>
-                        <div class="logo-list">
-                            <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
-                        </div>
+                            <div class="logo-list">
+                                <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
+                                <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
+                            </div>
                         </div>
                     </a>
                 </div>
         </div>
     </section>
 
-    <section class="a-propos monParcours section" id="aboutSection">
-        <h2 class="parcoursTitle">Mon parcours</h2>
-        <p class="typo-ar-onesans">Je suis un développeur web spécialisé dans le backend, ce qui signifie que je travaille principalement sur la face cachée des sites web, gérant les serveurs, les bases de données et la logique qui permet aux applications de fonctionner en coulisses. Ma transition vers ce domaine a été motivée par ma passion pour les technologies numériques et l'attrait de la durabilité et de la croissance continue qu'offre le secteur. Pour acquérir les compétences nécessaires, j'ai suivi une formation intensive de six mois chez O'Clock, au cours de laquelle j'ai acquis une solide compréhension des langages de programmation, des bases de données et des architectures web. À l'issue de cette formation, j'ai obtenu un Titre Professionnel de Niveau 5, ce qui a renforcé ma légitimité en tant que développeur web et m'a permis de m'engager dans des projets professionnels passionnants. Mon parcours m'a doté des compétences nécessaires pour contribuer de manière significative au développement et à la gestion des systèmes web.</p>
+    <section class="aproposSection section" id="aboutSection">
+        <div class="monParcours">
+            <h2 class="parcoursTitle">Mon parcours</h2>
+            <p class="typo-ar-onesans">Je suis un développeur web spécialisé dans le backend, ce qui signifie que je travaille principalement sur la face cachée des sites web, gérant les serveurs, les bases de données et la logique qui permet aux applications de fonctionner en coulisses. Ma transition vers ce domaine a été motivée par ma passion pour les technologies numériques et l'attrait de la durabilité et de la croissance continue qu'offre le secteur. Pour acquérir les compétences nécessaires, j'ai suivi une formation intensive de six mois chez O'Clock, au cours de laquelle j'ai acquis une solide compréhension des langages de programmation, des bases de données et des architectures web. À l'issue de cette formation, j'ai obtenu un Titre Professionnel de Niveau 5, ce qui a renforcé ma légitimité en tant que développeur web et m'a permis de m'engager dans des projets professionnels passionnants. Mon parcours m'a doté des compétences nécessaires pour contribuer de manière significative au développement et à la gestion des systèmes web.</p>
+        </div>
+            <div class="shadow"></div>
     </section>
 </div>
 
 
 
 <div class="footer typoTitres">
-<h2>Interested in working together ?</h2>
+<h2>Vous voulez travailler avec moi ?</h2>
 <a class="btn" href="mailto:delestre.nathan@gmail.com">Contactez-moi</a>
 </div>
 
