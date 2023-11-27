@@ -10,6 +10,7 @@ body {
     background-repeat: no-repeat;
     overflow-x : hidden;
     margin: 0;
+    padding: 0;
 }
 
 body.dark {
@@ -21,10 +22,6 @@ body.dark {
 }
 
     body.dark .icons {
-        filter: invert(100%);
-    }
-
-    body.dark .favicon {
         filter: invert(100%);
     }
 
@@ -71,8 +68,6 @@ body.dark {
         background-color: #000;
     }
 
-
-
 .main-content {
     position: relative;
     max-width: auto;
@@ -108,8 +103,8 @@ a{
 .favicon {
     display: flex;
     justify-content: space-between;
-    width: 5rem;
-    height: 5rem;
+    margin-left: 1rem;
+    height: 4rem;
 }
 
 .gitIcon {
@@ -211,7 +206,7 @@ a{
     /** PLACEMENT **/
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
@@ -225,7 +220,7 @@ a{
     right: 0;
     background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(5px);
-    z-index: 2;
+    z-index: 3;
 }
 
 .title {
@@ -268,11 +263,16 @@ a{
     transition: transform 0.3s;
 }
 
+.mini-menu {
+    display: none;
+}
+
 .menu {
     /** PLACEMENT **/
     display: flex;
     justify-content: space-between;
-    width: 17.438rem;
+    width: 100%;
+    max-width: 17.438rem;
     padding-left: 0px;
 
     /** DECORATION **/
@@ -303,6 +303,7 @@ a{
 
 .left-part {
     width: 500px;
+
 }
 
 .presentation {
@@ -312,10 +313,10 @@ a{
     justify-content: space-evenly;
     gap: 5%;
     font-size: x-large;
-    margin-top: 10rem;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-top: 5rem;
+    width: auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .qualities {
@@ -324,11 +325,11 @@ a{
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    width: 70%;
+    width: auto;
     font-size: larger;
     margin-top: 12.5rem;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 2rem;
+    margin-right: 2rem;
     background-color: #fff;
 }
 
@@ -373,11 +374,124 @@ a{
     margin-top: 12.5rem;
 }
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 850px){
 
-    .speech {
-        width: 450px;
+@media only screen and (min-device-width : 0px) and (max-device-width : 850px){
+    .typoTitres {
+        justify-content: center;
     }
+
+    .menu {
+        display: none;
+    }
+
+    .mini-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-end;
+        justify-content: center;
+        align-items: end;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+
+    .dot {
+        text-decoration: none;
+        width: 0.65rem;
+        height: 0.65rem;
+        border-radius: 50%;
+        margin-bottom: 0.8rem;
+        margin-top: 0.8rem;
+        margin-right: 0.7rem;
+        background-color: #303030;
+        list-style-type: none;
+    }
+
+    .dot.active {
+        background-color: #fff; /* Couleur du point actif en blanc */
+        box-shadow: 1px 1px 16px 2px rgba(255, 255, 255, 2);
+      }
+
+    .social-icons {
+        margin-right: 1rem;
+    }
+
+    .presentation {
+        /** PLACEMENT **/
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 5%;
+        font-size: x-large;
+        margin-top: 2rem;
+        width: auto;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .right-part {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .left-part {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: auto;
+        font-size: medium;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 3rem;
+    }
+
+    .photo {
+        width: 15rem;
+        height: 30rem;
+    }
+    
+    .qualities {
+        /** PLACEMENT **/
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        font-size: larger;
+        margin-top: 10rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        background-color: #fff;
+    }
+    
+    .qualities-list {
+        /** PLACEMENT **/
+        display: flex;
+        flex-direction: column;
+        list-style-type : none;
+        margin-top: 0;
+        margin-bottom: 0;
+        border: solid;
+        padding-left: 0rem;
+        justify-content: space-between;
+    }
+    
+    .qualities-word {
+        text-align: center;
+        margin-left: 2.5rem;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        margin-right: 2.5rem;
+    }
+    
+    .quality-icon {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
 
     .project-list {
         /** PLACEMENT **/
@@ -387,8 +501,6 @@ a{
         grid-auto-rows: minmax(6.25rem, auto);
         margin-top: 3.125rem;
         margin-bottom: 5rem;
-        margin-left: 1rem;
-        margin-right: 1rem;
     }
 
     .un {
@@ -402,15 +514,26 @@ a{
         background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
         background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
         background-position: center; /* Centre l'image horizontalement et verticalement */
-        height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
-        width: 40vw; /* Définissez la largeur de la div selon vos besoins */
+        height: 30rem; /* Définissez la hauteur de la div selon vos besoins */
+        width: 15rem; /* Définissez la largeur de la div selon vos besoins */
         color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
         padding: 1.25rem;
         border-radius: 1.875rem;
         margin-top: 0.938rem;
         filter: drop-shadow(0 0 0.75rem #A9A9A9);
     }
-    
+
+    .footer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .btn {
+        text-align: center;
+        width: 6rem;
+        height: 4rem;
+    }
+
 }
 
 @media only screen and (min-device-width : 851px) and (max-device-width : 1749px){
@@ -445,7 +568,6 @@ a{
         margin-top: 0.938rem;
         filter: drop-shadow(0 0 0.75rem #A9A9A9);
     }
-    
 }
 
 @media only screen and (min-device-width : 1750px) and (max-device-width : 2000px){
@@ -602,7 +724,7 @@ border: solid 2px #fad625;
     /** PLACEMENT **/
     display: flex;
     width: 100%;
-    justify-content: center;
+    align-items: center;
     justify-content: space-evenly;
     font-size: larger;
     margin-top: 3.5rem;

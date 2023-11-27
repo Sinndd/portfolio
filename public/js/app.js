@@ -113,6 +113,45 @@ document.addEventListener("DOMContentLoaded", function() {
   makeActive();
 });
 
+//! MINI-MENU !//
+
+document.addEventListener("DOMContentLoaded", function() {
+  const sections = document.querySelectorAll(".section");
+  const dots = document.querySelectorAll(".dot");
+  let previousActiveSection = null;
+
+  function makeActive() {
+    let activeSection = null;
+
+    sections.forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      const dot = dots[index];
+
+      if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+        activeSection = section;
+
+        // Ajoutez la classe "active" au point de menu correspondant
+        dots.forEach(dot => dot.classList.remove("active"));
+        dot.classList.add("active");
+      }
+    });
+
+    if (activeSection === null) {
+      // Si aucune section n'est survolée, ajoutez la classe "active" au premier point de menu
+      dots[0].classList.add("active");
+    }
+
+    if (activeSection !== previousActiveSection) {
+      if (previousActiveSection) {
+        previousActiveSection.classList.remove("active");
+      }
+      previousActiveSection = activeSection;
+    }
+  }
+
+  window.addEventListener("scroll", makeActive);
+  makeActive();
+});
 
 
 
@@ -187,67 +226,4 @@ gsap.config({
     units: {left: "%", top: "%", rotation: "rad"}
   });
 
-  //! SCROLL ANIMATIONS !//
-  // QUALITIES //
-  let qualities = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.qualities',
-        start: '20% 80%',
-        end: 'bottom center',
-        scrub: true,
-
-    }
-  })
-
-  qualities.fromTo('.qualities', { scale: 0.0005 }, { scale: 1 });
-
-  // PROJECTS //
-  let workTitle = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.work-title',
-        start: '20% 80%',
-        end: '20% -80%',
-        scrub: false,
-        toggleActions: 'play reverse play reverse'
-    }
-  })
-
-  workTitle.from('.work-title', {
-     y: 100,
-     opacity: 0,
-     duration: 1,
-
-    });
-
-  let projectPic = gsap.timeline({
-    scrollTrigger: {
-        trigger: '.un',
-        start: '20% 80%',
-        end: '20% -80%',
-        scrub: false,
-        toggleActions: 'play reverse play reverse'
-    }
-  })
-  
-  projectPic.from('.un', {
-      y: 100,
-      opacity: 0,
-      duration: 1,
-  
-    });
-
-
-
-  //smooth scroll
-  const lenis = new Lenis()
-
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
-
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
-
-requestAnimationFrame(raf)
+ 
