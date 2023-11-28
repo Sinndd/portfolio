@@ -374,12 +374,13 @@ a{
     margin-top: 12.5rem;
 }
 
-
 @media only screen and (min-device-width : 0px) and (max-device-width : 850px){
-    .typoTitres {
-        justify-content: center;
+    .lettre {
+        font-size: auto; /* Adjust font size for smaller screens */
+        letter-spacing: 6px; /* Adjust letter spacing for smaller screens */
+        margin-bottom: 10px; /* Adjusted margin for responsiveness */
     }
-
+    
     .menu {
         display: none;
     }
@@ -398,8 +399,8 @@ a{
 
     .dot {
         text-decoration: none;
-        width: 0.65rem;
-        height: 0.65rem;
+        width: 0.75rem;
+        height: 0.75rem;
         border-radius: 50%;
         margin-bottom: 0.8rem;
         margin-top: 0.8rem;
@@ -524,7 +525,7 @@ a{
     }
 
     .footer {
-        display: flex;
+        width: 100%;
         flex-direction: column;
     }
 
@@ -723,10 +724,7 @@ border: solid 2px #fad625;
 .footer {
     /** PLACEMENT **/
     display: flex;
-    width: 100%;
     align-items: center;
+    font-size: large;
     justify-content: space-evenly;
-    font-size: larger;
-    margin-top: 3.5rem;
-    margin-bottom: 3.5rem;
 }
