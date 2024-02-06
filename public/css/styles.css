@@ -1,10 +1,11 @@
 html {
     scroll-behavior: smooth;
-  }
+}
 
 body {
     /** PLACEMENT **/
-    background-image: url('/images/background-light.jpg');
+    background-attachment: fixed; /* Fixe l'image de fond pendant le défilement */
+    background-image: url('/images/flat-mountainsLight.svg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -13,8 +14,67 @@ body {
     padding: 0;
 }
 
+/*! BOUTON DARK MODE !*/
+.circle-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #000000; /* Couleur de fond du bouton (soleil) */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styles pour l'icône */
+.icon {
+    color: #fff; /* Couleur de l'icône (soleil) */
+    transition: transform 0.3s;
+    width: 1.5rem;
+}
+
+.mini-menu {
+    display: none;
+}
+
+.menu {
+    /** PLACEMENT **/
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 17.438rem;
+    padding-left: 0px;
+
+    /** DECORATION **/
+    border: solid grey;
+    background-color: #F0F0F2;
+    border-radius: 2.188rem;
+}
+
+.menu-word {
+    /** PLACEMENT **/
+    margin-right: 0.313rem;
+    margin-left: 0.313rem;
+    margin-top: 0.313rem;
+    margin-bottom: 0.313rem;
+    list-style-type : none;
+    padding: 0.625rem 0.625rem;
+    border-radius: 2.5rem;
+}
+
+.accueil.active,
+.travaux.active,
+.a-propos.active {
+    background-color: #c175ff;
+}
+
+/*! CHANGEMENTS DU DARK MODE !*/
 body.dark {
-    background-image: url('/images/background.png')!important; /* Charge une image pour la mettre en fond */
+    background-attachment: fixed; /* Fixe l'image de fond pendant le défilement */
+    background-image: url('/images/flat-mountains.svg')!important; /* Charge une image pour la mettre en fond */
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -25,19 +85,23 @@ body.dark {
         filter: invert(100%);
     }
 
-    body.dark .quality-icon {
+    body.dark .gitIcon {
+       filter: invert(100%);
+    }
+
+    body.dark .bar {
        filter: invert(100%);
     }
 
     body.dark .header {
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: #050505;
         backdrop-filter: blur(5px);
         color: #fff;
     }
 
     body.dark .header-fixed {
         color: #fff;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: #050505;
         backdrop-filter: blur(5px);
         box-shadow: 0px 0px 24px rgba(255, 255, 255, 0.15); /* Facultatif : ajoutez une ombre si nécessaire */
     }
@@ -48,7 +112,7 @@ body.dark {
 
     body.dark .menu {
     border: solid #fff;
-    background-color: #000;
+    background-color: #050505;
     color: #fff;
     }
 
@@ -65,9 +129,24 @@ body.dark {
     }
 
     body.dark .qualities {
-        background-color: #000;
+        position: relative; /* Ajouter une position relative */
+        overflow: hidden; /* Empêcher le débordement du pseudo-élément */
     }
 
+    body.dark .qualities::before {
+        content: ""; /* Contenu vide nécessaire pour les pseudo-éléments */
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0); /* Couleur de fond de .qualities */
+        backdrop-filter: blur(8px); /* Ajouter le filtre de flou au back */
+        z-index: -1; /* Assurer que le pseudo-élément est en arrière-plan */
+    }
+
+
+/*! CHANGEMENTS GENERAUX !*/
 .main-content {
     position: relative;
     max-width: auto;
@@ -83,14 +162,10 @@ a{
     color: black;
 }
 
-/* .logo {
-    width: 1.875rem;
-    height: 1.875rem;
-} */
-
 .photo {
     border-radius: 1.875rem;
     filter: drop-shadow(0 0 0.75rem rgb(4, 4, 4));
+    width: 20rem;
 }
 
 .icons {
@@ -103,14 +178,14 @@ a{
 .favicon {
     display: flex;
     justify-content: space-between;
-    margin-left: 1rem;
-    height: 4rem;
+    align-items: center;
+    height: 3rem;
+    margin: 0.5rem;
 }
 
 .gitIcon {
-    clip-path: circle(40%);
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .typo-ar-onesans {
@@ -121,12 +196,25 @@ a{
 .typoTitres {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 2px;
+
 }
 
 .typoTitreSpeech {
     font-family: 'Anton', sans-serif;
     letter-spacing: 2px;
 }
+
+.typoRubik {
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
+}
+
+#titres {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+
 /*! LOADER !*/
 .loader {
     position: absolute;
@@ -201,16 +289,16 @@ a{
 }
 
 /*! HEADER !*/
-
 .header {
     /** PLACEMENT **/
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(240, 240, 240, 0.1);
     backdrop-filter: blur(5px);
     transition: top 1s ease; /* Ajoutez une transition sur la propriété "top" */
+    padding-left: 8rem;
+    padding-right: 8rem;
 }
 
 .header-fixed {
@@ -218,7 +306,8 @@ a{
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(240, 240, 240, 1);
+    box-shadow: 0px 0px 24px rgba(5, 5, 5, 0.15); /* Facultatif : ajoutez une ombre si nécessaire */
     backdrop-filter: blur(5px);
     z-index: 3;
 }
@@ -242,65 +331,71 @@ a{
     width: 285px
 }
 
-/*! Dark mode btn !*/
-.circle-button {
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background-color: #c175ff; /* Couleur de fond du bouton (soleil) */
-    border: none;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
+.bouton {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-/* Styles pour l'icône */
-.icon {
-    color: #fff; /* Couleur de l'icône (soleil) */
-    transition: transform 0.3s;
-}
-
-.mini-menu {
+/* Styles pour le menu burger */
+.menu-burger {
     display: none;
+    cursor: pointer;
 }
 
-.menu {
-    /** PLACEMENT **/
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 17.438rem;
-    padding-left: 0px;
-
-    /** DECORATION **/
-    border: solid grey;
-    background-color: #F0F0F2;
-    border-radius: 2.188rem;
+.menu-burger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: #000000;
+    margin: 3.5px;
 }
 
-.menu-word {
-    /** PLACEMENT **/
-    margin-right: 0.313rem;
-    margin-left: 0.313rem;
-    margin-top: 0.313rem;
-    margin-bottom: 0.313rem;
-    list-style-type : none;
-    padding: 0.625rem 0.625rem;
-    border-radius: 2.5rem;
+/* Styles pour le dropdown menu */
+.dropdown-menu {
+    display: none;
+    background-color: rgb(229, 229, 233, 0.65); /* Ajoutez ici les autres styles de votre dropdown menu */
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    row-gap: 1.5rem;
+    width: 5rem;
+    /* Ajoutez ici les styles de votre dropdown menu */
 }
 
-.accueil.active,
-.travaux.active,
-.a-propos.active {
-    background-color: #c175ff;
-}
+/* Media query pour les écrans de taille réduite */
+@media only screen and (max-width: 1000px) {
+    .social-icons {
+        display: none; /* Masquer la liste des icônes sociaux */
+    }
 
+    .menu-burger {
+        display: flex; /* Afficher le menu burger */
+        flex-direction: column;
+        justify-content: end;
+        align-items: end;
+        position: relative; /* Assurez-vous que .menu-burger est positionné */
+        width: 17.813rem;
+    }
+
+    .dropdown-menu.show{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 130%; /* Positionner en dessous de .menu-burger */
+        right: -80%; /* Centrer horizontalement */
+        transform: translateX(-50%); /* Ajuster pour le centrage horizontal */
+    }
+
+    .gitIcon {
+        display: flex;
+        width: 1rem;
+    }
+
+    .dropdown {
+        display: flex;
+        align-items: flex-end;
+    }
+}
 
 /*! MAIN */
-
 .left-part {
     width: 500px;
 
@@ -313,12 +408,14 @@ a{
     justify-content: space-evenly;
     gap: 5%;
     font-size: x-large;
-    margin-top: 5rem;
+    margin-top: 15rem;
     width: auto;
     margin-left: 1rem;
     margin-right: 1rem;
+    margin-bottom: 15rem;
 }
 
+/*! MES TECHNOS !*/
 .qualities {
     /** PLACEMENT **/
     display: flex;
@@ -327,37 +424,160 @@ a{
     text-align: center;
     width: auto;
     font-size: larger;
-    margin-top: 12.5rem;
+    margin-top: 8rem;
     margin-left: 2rem;
     margin-right: 2rem;
-    background-color: #fff;
+    margin-bottom: 10rem;
+    row-gap: 1.5rem;
+    flex-wrap: wrap; /* Permettre le retour à la ligne */
+    font-family: 'Open Sans', sans-serif;
 }
 
-.qualities-list {
-    /** PLACEMENT **/
+.techno {
+    font-size: large;
+    font-weight: 900;
+}
+
+.niveau {
+    font-size: small;
+}
+
+.methodes {
     display: flex;
     flex-direction: row;
-    list-style-type : none;
-    margin-top: 0;
-    margin-bottom: 0;
-    border: solid;
-    padding-left: 0rem;
-    justify-content: space-between;
 }
 
-.qualities-word {
-    text-align: center;
-    margin-left: 2.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-    margin-right: 2.5rem;
+.methode {
+    font-size: small;
+    font-weight: bold;
+    padding: 3px;
+    border-radius: 5px;
+    background-color: rgba(190, 190, 190, 0.65);
 }
 
-.quality-icon {
-    width: 3.75rem;
-    height: 3.75rem;
+.image-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    background-color: rgba(229, 229, 233, 0.65);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px; /* Espacement entre chaque élément */
 }
 
+.image-container {
+    flex-basis: calc(33.33% - 4rem); /* Largeur de chaque élément, en tenant compte des marges */
+    /* margin: 2rem; /* Espacement entre les éléments */} */
+
+.image-container img {
+    width: 100%; /* Assurez-vous que les images remplissent complètement leur conteneur */
+}
+
+
+.info {
+    margin: 0.35rem;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
+/*! MES PROJETS */
+/* Titre PROJET */
+.work-title p {
+    font-size: medium;
+    margin: 1rem;
+}
+
+/* Liste PROJETS */
+.project-list {
+    /** PLACEMENT **/
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.625rem;
+    grid-auto-rows: minmax(6.25rem, auto);
+    margin: 1rem;
+}
+
+.un {
+    display: flex;
+    justify-content: center;
+}
+
+/* IMAGE PROJETS - Conteneur */
+.project-pic {
+    /* ... (styles existants) ... */
+    position: relative; /* Ajouter une position relative pour positionner l'overlay par rapport à cette div */
+    background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
+    background-position: center; /* Centre l'image horizontalement et verticalement */
+    height: 15rem; /* Définissez la hauteur de la div selon vos besoins */
+    width: 20rem; /* Définissez la largeur de la div selon vos besoins */
+    color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    margin-top: 0.938rem;
+    filter: drop-shadow(0 0 0.75rem #A9A9A9);
+}
+
+/* IMAGE PROJETS - overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 1.25rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+/* IMAGE PROJETS - liste dans l'overlay */
+.logo-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Centrez les logos horizontalement */
+    align-items: center;
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.overlay img {
+    width: 10%;
+    height: 100%;
+    margin: 0.313rem; /* Espacement entre les logos */
+}
+   
+    .project-pic:hover p {
+        display: inline-block;
+        background-color: #c175ff;
+        border-radius: 0.625rem;
+        padding: 0.438rem;
+        width: auto;
+        height: auto;
+        margin-top:  18px;
+        margin-left:  20px;
+    }
+    
+    .project-pic:hover .project-name {
+        visibility: hidden;
+    }
+    
+    .project-pic:hover .overlay {
+        opacity: 1;
+    }
+
+/* IMAGE PROJETS - Conteneur */
 .work-title { 
     display: flex;
     flex-direction: column;
@@ -365,16 +585,17 @@ a{
     align-items: center;
     text-align: center;
     justify-content: center;
+    margin-bottom: 8rem;
 }
 
 .my-work {
     /** PLACEMENT **/
     justify-content: center;
     font-size: larger;
-    margin-top: 12.5rem;
+    margin-top: 6.5rem;
 }
 
-@media only screen and (min-device-width : 0px) and (max-device-width : 850px){
+@media only screen and (min-width : 0px) and (max-width : 850px){
     .lettre {
         font-size: auto; /* Adjust font size for smaller screens */
         letter-spacing: 6px; /* Adjust letter spacing for smaller screens */
@@ -422,7 +643,7 @@ a{
         /** PLACEMENT **/
         display: flex;
         justify-content: center;
-        flex-direction: column-reverse;
+        flex-direction: column;
         gap: 5%;
         font-size: x-large;
         margin-top: 2rem;
@@ -446,82 +667,11 @@ a{
         font-size: medium;
         margin-left: 1rem;
         margin-right: 1rem;
-        margin-top: 3rem;
     }
 
     .photo {
-        width: 15rem;
-        height: 30rem;
-    }
-    
-    .qualities {
-        /** PLACEMENT **/
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        width: auto;
-        font-size: larger;
-        margin-top: 10rem;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        background-color: #fff;
-    }
-    
-    .qualities-list {
-        /** PLACEMENT **/
-        display: flex;
-        flex-direction: column;
-        list-style-type : none;
-        margin-top: 0;
-        margin-bottom: 0;
-        border: solid;
-        padding-left: 0rem;
-        justify-content: space-between;
-    }
-    
-    .qualities-word {
-        text-align: center;
-        margin-left: 2.5rem;
-        margin-top: 2.5rem;
-        margin-bottom: 2.5rem;
-        margin-right: 2.5rem;
-    }
-    
-    .quality-icon {
-        width: 3.75rem;
-        height: 3.75rem;
-    }
+        width: 10rem;
 
-
-    .project-list {
-        /** PLACEMENT **/
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 0.625rem;
-        grid-auto-rows: minmax(6.25rem, auto);
-        margin-top: 3.125rem;
-        margin-bottom: 5rem;
-    }
-
-    .un {
-        display: flex;
-        justify-content: center;
-    }
-
-    .project-pic {
-        /* ... (styles existants) ... */
-        position: relative; /* Ajouter une position relative pour positionner l'overlay par rapport à cette div */
-        background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
-        background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
-        background-position: center; /* Centre l'image horizontalement et verticalement */
-        height: 30rem; /* Définissez la hauteur de la div selon vos besoins */
-        width: 15rem; /* Définissez la largeur de la div selon vos besoins */
-        color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
-        padding: 1.25rem;
-        border-radius: 1.875rem;
-        margin-top: 0.938rem;
-        filter: drop-shadow(0 0 0.75rem #A9A9A9);
     }
 
     .footer {
@@ -537,7 +687,7 @@ a{
 
 }
 
-@media only screen and (min-device-width : 851px) and (max-device-width : 1749px){
+@media only screen and (min-width : 851px) and (max-width : 1199px){
     .project-list {
         /** PLACEMENT **/
         display: grid;
@@ -550,28 +700,60 @@ a{
         margin-right: 1rem;
     }
 
-    .un {
+    .qualities {
+        /** PLACEMENT **/
         display: flex;
-        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        font-size: larger;
+        margin-top: 4rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        flex-wrap: wrap; /* Permettre le retour à la ligne */
     }
 
-    .project-pic {
-        /* ... (styles existants) ... */
-        position: relative; /* Ajouter une position relative pour positionner l'overlay par rapport à cette div */
-        background-image: url('/images/image-ville.jpg'); /* Charge une image pour la mettre en fond */
-        background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
-        background-position: center; /* Centre l'image horizontalement et verticalement */
-        height: 38.875rem; /* Définissez la hauteur de la div selon vos besoins */
-        width: 40vw; /* Définissez la largeur de la div selon vos besoins */
-        color: #fff; /* Changez la couleur du texte pour qu'elle soit visible sur l'image */
-        padding: 1.25rem;
-        border-radius: 1.875rem;
-        margin-top: 0.938rem;
-        filter: drop-shadow(0 0 0.75rem #A9A9A9);
+    .qualities > * {
+        min-width: 15rem;
     }
 }
 
-@media only screen and (min-device-width : 1750px) and (max-device-width : 2000px){
+@media only screen and (min-width : 1200px) and (max-width : 1749px){
+    .project-list {
+        /** PLACEMENT **/
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.625rem;
+        grid-auto-rows: minmax(6.25rem, auto);
+        margin-top: 3.125rem;
+        margin-bottom: 5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .qualities {
+        /** PLACEMENT **/
+        display: flex;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        font-size: larger;
+        margin-top: 4rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        flex-wrap: wrap; /* Permettre le retour à la ligne */
+    }
+
+    .qualities > * {
+        max-width: 20rem;
+    }
+}
+
+@media only screen and (min-width : 1750px) and (max-width : 2000px){
     .project-list {
         /** PLACEMENT **/
         display: grid;
@@ -585,26 +767,25 @@ a{
         margin-right: 1rem;
     }
 
-    .un {
-        display: flex;
-        justify-content: center;
+    qualities {
+        /** PLACEMENT **/
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: auto;
+        font-size: larger;
+        margin-top: 4rem;
+        margin-left: 4rem;
+        margin-right: 4rem;
+        flex-wrap: wrap; /* Permettre le retour à la ligne */
     }
 
-    .project-pic {
-        /* ... (styles existants) ... */
-        background-image: url('/images/image-ville.jpg');
-        background-size: cover;
-        background-position: center;
-        height: 38.875rem;
-        width: 75%;
-        max-width: 400px;
-        color: #fff;
-        padding: 1.25rem;
-        border-radius: 1.875rem;
-        margin-top: 0.938rem;
-        filter: drop-shadow(0 0 0.75rem #A9A9A9);
-    }
 
+    .qualities > * {
+        max-width: 20rem;
+    }
 }
 
 .project-name {
@@ -615,58 +796,8 @@ a{
     margin: 0;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 1.875rem;
-    opacity: 0;
-    transition: opacity 0.5s ease-out;
-    display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-}
 
-.logo-list {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Centrez les logos horizontalement */
-    align-items: center;
-    width: 90%;
-    height: auto;
-    margin-left: 5%;
-    margin-right: 5%;
-}
 
-.overlay img {
-    width: 10%;
-    height: 100%;
-    margin: 0.313rem; /* Espacement entre les logos */
-}
-   
-    .project-pic:hover p {
-        display: inline-block;
-        background-color: #c175ff;
-        border-radius: 0.625rem;
-        padding: 0.438rem;
-        width: auto;
-        height: auto;
-        margin-top:  18px;
-        margin-left:  20px;
-    }
-    
-    .project-pic:hover .project-name {
-        visibility: hidden;
-    }
-    
-    .project-pic:hover .overlay {
-        opacity: 1;
-    }
 
     .aproposSection {
         font-size: 1.15rem;
@@ -711,7 +842,6 @@ cursor: pointer;
 }
 
 .btn:hover{
-
 transition : 178ms;
 padding: 10px 39px;
 transform : translateY(-0px);
@@ -727,4 +857,5 @@ border: solid 2px #fad625;
     align-items: center;
     font-size: large;
     justify-content: space-evenly;
+    margin-bottom: 1.5rem;
 }
