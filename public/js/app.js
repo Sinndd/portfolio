@@ -22,7 +22,13 @@ document.addEventListener('DOMContentLoaded', function() {
     body.classList.add('default-theme'); // Remplacez 'default-theme' par votre thème par défaut
   }
 
-  btnToggle.addEventListener('click', () => {
+  btnToggle.addEventListener('click', (event) => {
+    event.stopPropagation(); // Arrête la propagation de l'événement de clic
+    toggleTheme(); // Appeler la fonction toggleTheme pour basculer entre les thèmes
+  });
+
+  // Fonction pour basculer entre les thèmes
+  function toggleTheme() {
     if (body.classList.contains('dark')) {
       setLightMode();
       document.cookie = 'theme=light; max-age=2592000; SameSite=Lax';
@@ -30,8 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
       setDarkMode();
       document.cookie = 'theme=dark; max-age=2592000; SameSite=Lax';
     }
-  });
+  }
 
+  // Fonction pour activer le mode sombre
   function setDarkMode() {
     icon.style.display = 'block';
     body.classList.remove('light');
@@ -44,17 +51,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  // Fonction pour activer le mode clair
   function setLightMode() {
     icon.style.display = 'block';
     body.classList.remove('dark');
     body.classList.add('light');
-    btnToggle.style.backgroundColor = '#c175ff'; // Couleur de fond du bouton (soleil)
+    btnToggle.style.backgroundColor = '#000'; // Couleur de fond du bouton (soleil)
     icon.src = 'images/sun.png'; // Utilisez un chemin relatif
     icon.alt = "Soleil";
     loader.classList.remove('dark-background');
   }
+
+  // Ajoutez des gestionnaires d'événements pour les boutons du menu dropdown
+  const dropdownMenuButtons = document.querySelectorAll('.dropdown-menu button');
+  dropdownMenuButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      event.stopPropagation(); // Arrête la propagation de l'événement de clic
+      toggleTheme(); // Basculer entre les thèmes lorsque le bouton est cliqué dans le menu dropdown
+    });
+  });
 });
 
+
+//! MENU BURGER !//
+document.addEventListener('DOMContentLoaded', function () {
+  const menuBurger = document.querySelector('.menu-burger');
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+
+  menuBurger.addEventListener('click', function () {
+      dropdownMenu.classList.toggle('show');
+  });
+});
 
 //! HEADER FIXED !//
 
@@ -177,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function () {
 const title = document.querySelectorAll('.title');
 const menu = document.querySelectorAll('.menu');
 const socialIcons = document.querySelectorAll('.social-icons');
+const menuBurger = document.querySelectorAll('.menu-burger');
 const leftPart = document.querySelectorAll('.left-part');
 const rightPart = document.querySelectorAll('.right-part');
 
@@ -203,15 +231,22 @@ gsap.from(".social-icons", {
     delay : 2,
 })
 
+gsap.from(".menu-burger", {
+  y : -40,
+  opacity: 0,
+  duration : .5,
+  delay : 2,
+})
+
 gsap.from(".left-part", {
-    x : -200,
+    x : 200,
     opacity: 0,
     duration : 1.5,
     delay : 1.5,
 })
 
 gsap.from(".right-part", {
-    x : 500,
+    x : -500,
     opacity: 0,
     duration : 2,
     delay : 1,

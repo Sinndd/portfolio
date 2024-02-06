@@ -32,9 +32,23 @@
         <li class="">
             <button id="toggle-button" class="circle-button"><img src="{{ asset('images/sun.png') }}" alt="Expérience" class="icon"></button>
         </li>
-        <li><a href="https://www.linkedin.com/in/nathan-delestre/" target="_blank" class=""><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="45" height="45" viewBox="0,0,256,256"><g fill="#c175ff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M41,4h-32c-2.76,0 -5,2.24 -5,5v32c0,2.76 2.24,5 5,5h32c2.76,0 5,-2.24 5,-5v-32c0,-2.76 -2.24,-5 -5,-5zM17,20v19h-6v-19zM11,14.47c0,-1.4 1.2,-2.47 3,-2.47c1.8,0 2.93,1.07 3,2.47c0,1.4 -1.12,2.53 -3,2.53c-1.8,0 -3,-1.13 -3,-2.53zM39,39h-6c0,0 0,-9.26 0,-10c0,-2 -1,-4 -3.5,-4.04h-0.08c-2.42,0 -3.42,2.06 -3.42,4.04c0,0.91 0,10 0,10h-6v-19h6v2.56c0,0 1.93,-2.56 5.81,-2.56c3.97,0 7.19,2.73 7.19,8.26z"></path></g></g></svg></a></li>
-        <li><a href="https://github.com/Sinndd" target="_blank"><img src="{{ asset('images/github.png') }}" alt="Expérience" class="gitIcon"></a></li>
+        <li><a href="https://www.linkedin.com/in/nathan-delestre/" target="_blank"><img src="{{ asset('images/LinkedinLogo.svg') }}" alt="Expérience" class="gitIcon"></a></li>
+        <li><a href="https://github.com/Sinndd" target="_blank"><img src="{{ asset('images/GITHUBLogo.svg') }}" alt="Expérience" class="gitIcon"></a></li>
     </ul>
+    <div class="menu-burger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    
+    <div class="dropdown-menu">
+        <!-- Contenu du dropdown menu -->
+        <a class="dropdown gitIcon" href="https://www.linkedin.com/in/nathan-delestre/" target="_blank"><img src="{{ asset('images/LinkedinLogo.svg') }}" alt="Expérience"> &nbsp;Linkedin</a>
+        <a class="dropdown gitIcon" href="https://github.com/Sinndd" target="_blank"><img src="{{ asset('images/GITHUBLogo.svg') }}" alt="Expérience"> &nbsp; &nbsp;Github</a>
+        <div class="bouton">
+            <br><button id="toggle-button" class="circle-button"><img src="{{ asset('images/sun.png') }}" alt="Expérience" class="icon"></button>
+        </div>
+    </div>
+    </div>
 </div>
 
 
@@ -50,37 +64,83 @@
 
     <section class="section" id="homeSection">
         <div class="presentation">
+            <div class="right-part">
+                <img src="{{ asset('images/nathCoul.jpg') }}" alt="Expérience" class="photo">
+            </div>
             <div class="left-part">
                 <h1 class="typoTitreSpeech">Bonjour, je m'appelle <br><span class="prenom">Nathan Delestre.</span></h1>
-            <div class="right-part">
-                <img src="{{ asset('images/image-ville.jpg') }}" alt="Expérience" class="photo">
-            </div>
                 <p class="typo-ar-onesans speech">J'ai 21 ans, je sors d'une formation Développeur Web de chez O'clock à l'issue de laquelle j'ai eu mon Titre Professionnel. </p>
             </div>
         </div>
 
+        <h1 class="typoTitres" id="titres">Mes Technologies</h1>
         <div class="qualities">
-            <ul class="qualities-list">
-                <li class="qualities-word">
-                    <h2 class="typoTitres"><img src="{{ asset('images/handshake.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Travail en équipe</h2>
-                    <p class="typo-ar-onesans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </li>
-                <li class="qualities-word">
-                    <h2 class="typoTitres"><img src="{{ asset('images/angel.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Gentil</h2>
-                    <p class="typo-ar-onesans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </li>
-                <li class="qualities-word">
-                    <h2 class="typoTitres"><img src="{{ asset('images/brain.gif') }}" alt="Expérience" class="quality-icon">&nbsp;&nbsp;Strategy-Minded</h2>
-                    <p class="typo-ar-onesans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                </li>
-            </ul>
+            <div class="image-container">
+                <div class="logo contenu">
+                    <img src="{{ asset('images/HTMLLogo.svg') }}" alt="Expérience" class="favicon">
+                    <img src="{{ asset('images/CSSLogo.svg') }}" alt="Expérience" class="favicon">
+                </div>
+                <h2 class="techno info contenu typoRubik">HTML & CSS</h2>
+                <p class="niveau info contenu typo-ar-onesans">Niveau Intermédiaire</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/JSLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">Javascript</h2>
+                <p class="niveau info contenu typo-ar-onesans">Niveau Intermédiaire</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/MySQLLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">MySQL</h2>
+                <p class="niveau info contenu typo-ar-onesans">Niveau Intermédiaire</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/PHPLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">PHP</h2>
+                <p class="niveau info contenu typo-ar-onesans">Niveau Intermédiaire</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/SymfonyLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik"></h2>
+                <p class="niveau info contenu typo-ar-onesans">Spécialité formation - Projet formation</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/TWIGLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">Twig</h2>
+                <p class="niveau info contenu typo-ar-onesans">Spécialité formation - Projet formation</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/GSAPLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">GSAP</h2>
+                    <p class="niveau info contenu typo-ar-onesans">Auto-formation - Débutant</p>
+                <div class="methodes">
+                    <p class="methode info contenu typo-ar-onesans">Youtube</p><p class="methode info contenu typo-ar-onesans">Documentation</p>
+                </div>
+            </div>
+
+            <div class="image-container">
+                <img src="{{ asset('images/GITLogo.svg') }}" alt="Expérience" class="favicon">
+                <h2 class="techno info contenu typoRubik">GIT</h2>
+                <p class="niveau info contenu typo-ar-onesans">Niveau Intermédiaire</p>
+                <p class="methode info contenu typo-ar-onesans">O'CLOCK</p>
+            </div>
         </div>
     </section>
 
     <section class="my-work section" id="listprojectSection">
         <div class="work-title">
-            <h2 class="typoTitres">Mes Projets</h2>
-            <p class="typo-ar-onesans">Voici quelques projets que j'ai pu réaliser...</p>
+            <h2 class="typoTitres" id="titres">Mes Projets</h2>
         </div>
 
         <div class="project-list">
@@ -92,14 +152,13 @@
 
                             <p class="typo-ar-onesans">Salut voici mon projet</p>
                         <div class="logo-list">
-                            <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/CSSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/HTMLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/JSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/TWIGLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/MySQLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/PHPLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/SymfonyLogo.svg') }}" alt="Expérience" class="">
                         </div>
                         </div>
                     </a>
@@ -113,14 +172,13 @@
 
                             <p class="typo-ar-onesans">Salut voici mon projet</p>
                         <div class="logo-list">
-                            <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/CSSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/HTMLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/JSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/TWIGLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/MySQLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/PHPLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/SymfonyLogo.svg') }}" alt="Expérience" class="">
                         </div>
                         </div>
                     </a>
@@ -134,14 +192,13 @@
 
                             <p class="typo-ar-onesans">Salut voici mon projet</p>
                         <div class="logo-list">
-                            <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
-                            <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/CSSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/HTMLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/JSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/TWIGLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/MySQLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/PHPLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/SymfonyLogo.svg') }}" alt="Expérience" class="">
                         </div>
                         </div>
                     </a>
@@ -155,14 +212,13 @@
 
                             <p class="typo-ar-onesans">Salut voici mon projet</p>
                             <div class="logo-list">
-                                <img src="{{ asset('images/css.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/git.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/html5.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/JavaScript-logo.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/logo-twig.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/MySQL-logo.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/php-logo.png') }}" alt="Expérience" class="">
-                                <img src="{{ asset('images/symfony.png') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/CSSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/HTMLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/JSLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/TWIGLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/MySQLLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/PHPLogo.svg') }}" alt="Expérience" class="">
+                            <img src="{{ asset('images/SymfonyLogo.svg') }}" alt="Expérience" class="">
                             </div>
                         </div>
                     </a>
